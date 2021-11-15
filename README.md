@@ -1,12 +1,12 @@
 # SpeedAisle
 
-## Stack
+## Tech Stack
 
 - Node.js
-- Express
-- PostgreSQL
+- Express.js
+- PostgreSQL / Prisma
 - Handlebars
-- SCSS / CSS
+- CSS
 - Cypress
 - Heroku
 
