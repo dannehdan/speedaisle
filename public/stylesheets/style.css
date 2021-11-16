@@ -1,16 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap');
+
+color_palette {
+  color: #76DD78,
+  #B4E9A9,
+  #FBF7BD,
+  #FFB84F,
+  #FFA001,
+  #F37142;
+
+  color:
+  #ffcce7,
+  #daf2dc,
+  #81b7d2,
+  #4d5198
+}
 
 body {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(to bottom right, #daf2dc, #ffcce7) fixed;
+  /* background-repeat: no-repeat; */
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  padding: 10px;
+  background-color: none;
 }
 
 .navbar-brand {
   font-family: 'IBM Plex Sans';
-  font-style: italic;
+  color: #4d5198!important;
+  font-size: 2em;
 }
