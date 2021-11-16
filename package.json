@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "start:test": "PORT=3030 npm start",
-    "test": "npm run test:integration",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest",
     "test:integration": "cypress run",
     "cy:run": "cypress run"
   },
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "cypress": "^9.0.0",
+    "jest": "^27.3.1",
     "nodemon": "^2.0.15"
   }
 }
