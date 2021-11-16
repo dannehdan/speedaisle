@@ -6,4 +6,9 @@ describe('List model', function () {
     const list = new List();
     expect(list.getItems()).toEqual([]); 
   });
+
+  it('can add an item', function() {
+    const list = new List();
+    expect(list.addItem("banana")).toEqual(["banana"]); 
+  });
 });
