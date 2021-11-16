@@ -4,6 +4,6 @@ describe('List model', function () {
   
   it('can be created', function() {
     const list = new List();
-    expect(list.items).toEqual([]); 
+    expect(list.getItems()).toEqual([]); 
   });
 });

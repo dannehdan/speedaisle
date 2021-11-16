@@ -1,5 +1,9 @@
 class List {
-    items = [];
+    // items = [];
+
+  getItems() {
+    return [];
+  }
 }
 
 module.exports = List;
