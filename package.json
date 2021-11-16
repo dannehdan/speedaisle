@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www",
+    "start:test": "PORT=3030 npm start",
+    "test": "npm run test:integration",
+    "test:integration": "cypress run",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "cookie-parser": "~1.4.5",
