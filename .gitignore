@@ -1,2 +1,8 @@
 node_modules
+coverage
+
+# cypress.io
+cypress/screenshots
+cypress/videos
+
 .env

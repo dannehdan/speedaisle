@@ -20,11 +20,12 @@ model items {
   name       String
   listId     Int
   categoryId Int
+  ticked     Boolean    @default(false)
   category   categories @relation(fields: [categoryId], references: [id])
 }
 
 model categories {
-  id    Int     @id @default(autoincrement())
+  id    Int     @id
   name  String
   items items[]
 }
