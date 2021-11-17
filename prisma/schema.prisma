@@ -24,7 +24,7 @@ model items {
 }
 
 model categories {
-  id    Int     @id @default(autoincrement())
+  id    Int     @id
   name  String
   items items[]
 }
