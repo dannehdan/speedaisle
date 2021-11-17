@@ -20,6 +20,7 @@ model items {
   name       String
   listId     Int
   categoryId Int
+  ticked     Boolean    @default(false)
   category   categories @relation(fields: [categoryId], references: [id])
 }
 

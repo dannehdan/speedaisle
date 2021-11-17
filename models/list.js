@@ -11,11 +11,12 @@ const categories = [
   "Household",
 ];
 // (async function(){
+    
 //     await prisma.categories.createMany({
 //       data: categories.map((item, index) => ({
 //         name: item,
 //         id: index
-//       })),
+//       }))
 //     });
 // })();
 
@@ -34,7 +35,7 @@ class List {
     await prisma.items.create({
       data: { name: name, listId: listId, categoryId: Number(categoryId) }
     });
-    
+
     return [name];
   }
 }
