@@ -37,7 +37,7 @@ model category_orders {
   categoryId       Int          @id @default(autoincrement())
   categoryPosition Int
   categories       categories[]
-  storeId          Int          @unique
+  storeId          Int
   store            stores       @relation(fields: [storeId], references: [id])
 }
 
