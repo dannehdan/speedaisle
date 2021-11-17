@@ -9,6 +9,6 @@ describe('List model', function () {
 
   it('can add an item', function() {
     const list = new List();
-    expect(list.addItem("banana")).toEqual(["banana"]); 
+    expect(list.addItem("banana", 1, "0")).resolves.toEqual(["banana"]); 
   });
 });

@@ -29,7 +29,7 @@ You can find the Trello board to follow along with the build, or log isses and i
 
 ## User Stories
 
-- [ ] As a user, so I can create my shopping list, I would like to add an item to my shopping list
+- [x] As a user, so I can create my shopping list, I would like to add an item to my shopping list
 - [ ] As a user, so I can adjust my shopping list, I would like to delete an item from my shopping list
 - [ ] As a user, so I can optimise my shopping trip, I would like to see my shopping list categorised into relevant groups
 - [ ] As a user, so I can login, I would like to register an account with SpeedAisle
