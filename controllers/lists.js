@@ -1,17 +1,11 @@
 const List = require("../models/list.js");
+const { Category, categories } = require("../models/category");
 const list = new List();
-
-const categories = [
-  "Fruits & Vegs",
-  "Bakery",
-  "Fridge",
-  "Frozen",
-  "Food Cupboard",
-  "Household",
-];
+const category = new Category();
 
 const ListsController = {
-  Show: (req, res) => {
+  Show: async (req, res) => {
+    await category.populateTable();
     res.render("list/index", { title: "Your List" });
   },
 
