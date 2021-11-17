@@ -16,14 +16,17 @@ model lists {
 }
 
 model items {
-  id     Int    @id @default(autoincrement())
-  name   String
-  listId Int
+  id         Int        @id @default(autoincrement())
+  name       String
+  listId     Int
+  categoryId Int
+  category   categories @relation(fields: [categoryId], references: [id])
 }
 
 model categories {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int     @id @default(autoincrement())
+  name  String
+  items items[]
 }
 
 model category_orders {
