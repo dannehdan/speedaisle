@@ -4,3 +4,5 @@ coverage
 # cypress.io
 cypress/screenshots
 cypress/videos
+
+.env

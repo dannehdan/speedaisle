@@ -2,7 +2,7 @@
 
 SpeedAisle is an application that allows you to create a shopping list, which SpeedAisle will then categorise into the aisles where those products are found, to make your shopping experience as simple as possible!
 
-*Stretch goal is to have automatic pathfinding to map out the most efficient route around your store*
+_Stretch goal is to have automatic pathfinding to map out the most efficient route around your store_
 
 ## Tech Stack
 
@@ -15,6 +15,17 @@ SpeedAisle is an application that allows you to create a shopping list, which Sp
 - Heroku
 
 You can find the Trello board to follow along with the build, or log isses and ideas for this application, [at this link here](https://trello.com/b/BLrD4A53)
+
+## How to get database working
+
+1. make sure you `npm install` to have everything (like the Prisma CLI)
+2. create a `.env` file in the root directory
+3. copy the content inside of `.env.example` into `.env`
+4. replace the `YOURNAME` placeholders with your computer's username. For example: `DATABASE_URL="postgresql://parsa:parsa@localhost:5432/speedaisle?schema=public"`. If it doesn't work then message on Slack.
+5. create the actual `speedaisle` database. This can be done easily by running `createdb speedaisle` in your terminal. `createdb` should be available if you have `psql` installed. Alternatively, you can just do `create database speedaisle;`. Again, if you have any problems just message.
+6. run `npx prisma db push` to have whats in `schema.prisma` to sync with the database you just made.
+
+7. TODO: setup test database (for now follow the previous steps but create a new db called "speedaisle_test")
 
 ## User Stories
 
