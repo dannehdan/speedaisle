@@ -15,21 +15,65 @@ color_palette {
   #4d5198
 }
 
+/* FULL SITE STYLING */
+
 body {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(to bottom right, #daf2dc, #ffcce7) fixed;
-  /* background-repeat: no-repeat; */
+  color: #4d5198;
 }
+
+.title {
+  font-family: 'IBM Plex Sans';
+  color: #81b7d2!important;
+  font-size: 3em;
+}
+
+.subtitle{
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  border-style: none;
+  background-color: #daf2dc;
+  color: #81b7d2
+}
+
+/* NAVBAR */
 
 .navbar {
   padding: 10px;
-  background-color: none;
+  background-color: #daf2dc;
 }
 
 .navbar-brand {
   font-family: 'IBM Plex Sans';
-  color: #4d5198!important;
+  color: #81b7d2!important;
   font-size: 2em;
+}
+
+/* HOMEPAGE */
+
+.homepage-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-image {
+  background-image: url('images/hero-image.png');
+  height: 100%;
+  width: 100%;
+}
+
+.title-content {
+  padding: 10px;
+}
+
+.homepage-buttons button{
+  margin: 10px 30px;
 }
