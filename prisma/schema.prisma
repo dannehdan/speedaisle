@@ -11,9 +11,8 @@ datasource db {
 }
 
 model lists {
-  id      Int     @id @default(autoincrement())
+  id      Int @id @default(autoincrement())
   ownerId Int
-  items   items[]
 }
 
 model items {
@@ -21,7 +20,6 @@ model items {
   name       String
   listId     Int
   categoryId Int
-  list       lists      @relation(fields: [listId], references: [id])
   category   categories @relation(fields: [categoryId], references: [id])
 }
 
