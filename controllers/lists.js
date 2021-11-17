@@ -6,16 +6,14 @@ const category = new Category();
 const ListsController = {
   Show: async (req, res) => {
     await category.populateTable();
-    res.render("list/index", { title: "Your List" });
+    const items = await list.getItems();
+
+    res.render("list/index", { title: "Your List", items: items });
   },
 
   Add: async (req, res) => {
     await list.addItem(req.body.item, 1, req.body.category);
-    res.send(
-      `You added ${req.body.item} to the ${
-        categories[req.body.category]
-      } category`
-    );
+    res.redirect("/list");
   },
 };
 
