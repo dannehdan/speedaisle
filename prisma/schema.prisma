@@ -10,37 +10,40 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model List {
-  id      Int    @id @default(autoincrement())
+model lists {
+  id      Int     @id @default(autoincrement())
   ownerId Int
-  items   Item[]
+  items   items[]
 }
 
-model Item {
-  id     Int    @id @default(autoincrement())
-  name   String
-  listId Int
-  list   List   @relation(fields: [listId], references: [id])
+model items {
+  id         Int        @id @default(autoincrement())
+  name       String
+  listId     Int
+  categoryId Int
+  list       lists      @relation(fields: [listId], references: [id])
+  category   categories @relation(fields: [categoryId], references: [id])
 }
 
-model Category {
-  id      Int           @id @default(autoincrement())
-  name    String
-  orderId Int
-  order   CategoryOrder @relation(fields: [orderId], references: [categoryId])
+model categories {
+  id                      Int              @id @default(autoincrement())
+  name                    String
+  items                   items[]
+  CategoryOrder           category_orders? @relation(fields: [categoryOrderCategoryId], references: [categoryId])
+  categoryOrderCategoryId Int?
 }
 
-model CategoryOrder {
-  categoryId       Int        @id @default(autoincrement())
+model category_orders {
+  categoryId       Int          @id @default(autoincrement())
   categoryPosition Int
-  categories       Category[]
-  storeId          Int        @unique
-  store            Store      @relation(fields: [storeId], references: [id])
+  categories       categories[]
+  storeId          Int          @unique
+  store            stores       @relation(fields: [storeId], references: [id])
 }
 
-model Store {
-  id            Int             @id @default(autoincrement())
+model stores {
+  id            Int               @id @default(autoincrement())
   name          String
   address       String
-  categoryOrder CategoryOrder[]
+  categoryOrder category_orders[]
 }
