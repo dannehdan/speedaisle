@@ -24,19 +24,17 @@ model items {
 }
 
 model categories {
-  id                      Int              @id @default(autoincrement())
+  id                      Int     @id @default(autoincrement())
   name                    String
-  items                   items[]
-  CategoryOrder           category_orders? @relation(fields: [categoryOrderCategoryId], references: [categoryId])
   categoryOrderCategoryId Int?
+  items                   items[]
 }
 
 model category_orders {
-  categoryId       Int          @id @default(autoincrement())
+  categoryId       Int    @id @default(autoincrement())
   categoryPosition Int
-  categories       categories[]
   storeId          Int
-  store            stores       @relation(fields: [storeId], references: [id])
+  store            stores @relation(fields: [storeId], references: [id])
 }
 
 model stores {
