@@ -38,7 +38,7 @@ h2 {
   font-size: 1.5em;
 }
 
-button, #login-in-btn {
+button {
   border-radius: 5px;
   padding: 10px 30px;
 
@@ -47,6 +47,18 @@ button, #login-in-btn {
   color: #E8E1D9;
   font-size: 16px;
 }
+
+.g-signin2 {
+  margin-top: 16px;
+  border-radius: 5px;
+}
+.abcRioButton.abcRioButtonLightBlue {
+  background-color: #3E7C17;
+  border-radius: 5px;
+}
+
+.abcRioButtonContents {
+  color: #E8E1D9;
 
 hr {
   margin: 20px 0px;
