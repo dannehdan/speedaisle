@@ -27,7 +27,10 @@
       <h2>{{this.header}}</h2>
       <ul class="test-list list">
         {{#each this.items}}
-          <li class="test-list-item list-item">{{this.name}}</li>
+          <div class='checkbox'>
+            <input type="checkbox" name="packersOff" id="packers" value="1"/>
+            <label for="packers" class="strikethrough">{{this.name}}</label>
+          </div>
         {{/each}}
       </ul>
     {{/each}}
