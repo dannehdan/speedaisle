@@ -103,3 +103,7 @@ button, #login-in-btn {
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;
 }
+
+.test-list.list {
+  margin-top: 10px;
+}
