@@ -110,8 +110,14 @@ hr {
 
 /* LIST */
 
+.list-content {
+  height: 500px;
+  overflow:auto;
+  background:#fff;
+}
+
 .list {
-  padding-left: 1em;
+  padding-left: em;
 }
 
 input[type=checkbox]:checked + label.strikethrough{
