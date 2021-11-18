@@ -26,7 +26,6 @@
     {{#each categorised}}
       {{#if this.items.length }}
       <h2>{{this.header}}</h2>
-      {{/if}}
       <ul class="test-list list">
         {{#each this.items}}
           <div class='checkbox'>
@@ -35,6 +34,7 @@
           </div>
         {{/each}}
       </ul>
+      {{/if}}
     {{/each}}
   </div>
 </div>
