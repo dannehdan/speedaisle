@@ -29,6 +29,7 @@
   </form>
   <hr>
   <div class='list-content'>
+   {{#if hasItems }}
     {{#each categorised}}
       {{#if this.items.length }}
       <h2>{{this.header}}</h2>
@@ -42,6 +43,14 @@
       </ul>
       {{/if}}
     {{/each}}
+    <form class="test-remove-all-form" action="/list/clean" method="get">
+        <input class="test-remove-all-btn" type="submit" value="delete all" />
+      </form>
+    {{else}}
+      <p class='message'>
+        Your list is empty!
+      </p>
+    {{/if}}
   </div>
 </div>
 <script src="javascripts/interface.js"></script>
