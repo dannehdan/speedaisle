@@ -31,9 +31,8 @@ You can find the Trello board to follow along with the build, or log isses and i
 
 - [x] As a user, so I can create my shopping list, I would like to add an item to my shopping list
 - [ ] As a user, so I can adjust my shopping list, I would like to delete an item from my shopping list
-- [ ] As a user, so I can optimise my shopping trip, I would like to see my shopping list categorised into relevant groups
-- [ ] As a user, so I can login, I would like to register an account with SpeedAisle
-- [ ] As a user, so I can see my own shopping list, I would like to log in to my account
+- [x] As a user, so I can optimise my shopping trip, I would like to see my shopping list categorised into relevant groups
+- [x] As a user, so I can use the app, I would like to register an account/login to SpeedAisle using my Google Account
 - [ ] As a user, so I can make my trip more efficient, I would like to save the order of aisles in my local store
 - [ ] As a user, so I can optimise my shopping trip, I would like my shopping list to be arranged based on the aisles in my store
 

@@ -1,38 +1,56 @@
 <div class="container">
-  <h1 class="test-header">{{title}}</h1>
-  <form class="test-add-item-form" action="/list/additem" method="post">
-
-    <input
-      class="test-item-input"
-      id="new-item"
-      name="item"
-      type="text"
-      placeholder="apples"
-      required
-    />
-
-    <select class="test-select-dropdown" id="category" name="category">
-      <option value="0">Fruits &amp; Vegs</option>
-      <option value="1">Bakery</option>
-      <option value="2">Fridge</option>
-      <option value="3">Frozen</option>
-      <option value="4">Food Cupboard</option>
-      <option value="5">Household</option>
-    </select>
-
-    <input class="test-add-item-btn" type="submit" value="add" />
+  <h1 class="header">{{title}}</h1>
+  <form class="add-item-form" action="/list/additem" method="post">
+    <div class='row add-item'>
+      <div class='col-md-7'>
+        <input
+          class="item-input"
+          id="new-item"
+          name="item"
+          type="text"
+          placeholder="apples"
+          required
+        />
+      </div>
+      <div class='col-md-3'>
+        <select class="select-dropdown" id="category" name="category">
+          <option value="0">Fruits &amp; Vegs</option>
+          <option value="1">Bakery</option>
+          <option value="2">Fridge</option>
+          <option value="3">Frozen</option>
+          <option value="4">Food Cupboard</option>
+          <option value="5">Household</option>
+        </select>
+      </div>
+      <div class='col-md-2 d-flex add-btn'>
+        <input class="add-item-btn" type="submit" value="Add Item" />
+      </div>
+    </div>
   </form>
-  <div>
+  <hr>
+  <div class='list-content'>
+   {{#if hasItems }}
     {{#each categorised}}
+      {{#if this.items.length }}
       <h2>{{this.header}}</h2>
-      <ul class="test-list list">
+      <ul class="list">
         {{#each this.items}}
           <div class='checkbox'>
-            <input type="checkbox" name="packersOff" id="packers" value="1"/>
-            <label for="packers" class="strikethrough">{{this.name}}</label>
+            <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
+            <label for={{this.id}} class="strikethrough">{{this.name}}</label>
           </div>
         {{/each}}
       </ul>
+      {{/if}}
     {{/each}}
+    <form class="test-remove-all-form" action="/list/clean" method="get">
+        <input class="test-remove-all-btn" type="submit" value="delete all" />
+      </form>
+    {{else}}
+      <p class='message'>
+        Your list is empty!
+      </p>
+    {{/if}}
   </div>
 </div>
+<script src="javascripts/interface.js"></script>
