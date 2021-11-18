@@ -34,5 +34,6 @@ function checkAuthenticated(req, res, next){
 /* GET list listing. */
 router.get('/', checkAuthenticated, ListsController.Show);
 router.post('/additem', ListsController.Add);
+router.patch('/check', ListsController.Check);
 
 module.exports = router;
