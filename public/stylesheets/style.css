@@ -22,6 +22,12 @@ h1 {
   margin-top: 30px;
 }
 
+h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
 .title {
   font-size: 3em;
   margin-top: 0px;
@@ -40,6 +46,10 @@ button, #login-in-btn {
   background-color: #3E7C17;
   color: #E8E1D9;
   font-size: 16px;
+}
+
+hr {
+  margin: 20px 0px;
 }
 
 /* NAVBAR */
@@ -100,6 +110,63 @@ button, #login-in-btn {
 
 /* LIST */
 
+.list-content {
+  height: 500px;
+  overflow:auto;
+  background:#fff;
+}
+
+.list {
+  padding-left: em;
+}
+
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;
+  color: grey;
+  font-style: italic;
+}
+
+/* Customize the label (the container) */
+.checkbox {
+  display: block;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox input {
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 25px;
+}
+
+.add-item-form input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-btn {
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=submit] {
+  border-radius: 5px;
+  padding: 10px 30px;
+
+  border-style: none;
+  background-color: #3E7C17;
+  color: #E8E1D9;
+  font-size: 16px;
 }
