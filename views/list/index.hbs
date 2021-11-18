@@ -1,32 +1,35 @@
-<div class='container'>
-<h1 class="test-header">{{title}}</h1>
-<form class="test-add-item-form" action="/list/additem" method="post">
+<div class="container">
+  <h1 class="test-header">{{title}}</h1>
+  <form class="test-add-item-form" action="/list/additem" method="post">
 
-  <input
-    class="test-item-input"
-    id="new-item"
-    name="item"
-    type="text"
-    placeholder="apples"
-    required
-  />
+    <input
+      class="test-item-input"
+      id="new-item"
+      name="item"
+      type="text"
+      placeholder="apples"
+      required
+    />
 
-  <select class="test-select-dropdown" id="category" name="category">
-    <option value="0">Fruits &amp; Vegs</option>
-    <option value="1">Bakery</option>
-    <option value="2">Fridge</option>
-    <option value="3">Frozen</option>
-    <option value="4">Food Cupboard</option>
-    <option value="5">Household</option>
-  </select>
+    <select class="test-select-dropdown" id="category" name="category">
+      <option value="0">Fruits &amp; Vegs</option>
+      <option value="1">Bakery</option>
+      <option value="2">Fridge</option>
+      <option value="3">Frozen</option>
+      <option value="4">Food Cupboard</option>
+      <option value="5">Household</option>
+    </select>
 
-  <input class="test-add-item-btn" type="submit" value="add" />
-</form>
-<ul class="test-list list">
-  {{#each items}}
-    <li class="test-list-item list-item">{{this.name}}</li>
-  {{else}}
-    <h2>No items to display, start adding!</h2>
-  {{/each}}
-</ul>
+    <input class="test-add-item-btn" type="submit" value="add" />
+  </form>
+  <div>
+    {{#each categorised}}
+      <h2>{{this.header}}</h2>
+      <ul class="test-list list">
+        {{#each this.items}}
+          <li class="test-list-item list-item">{{this.name}}</li>
+        {{/each}}
+      </ul>
+    {{/each}}
+  </div>
 </div>
