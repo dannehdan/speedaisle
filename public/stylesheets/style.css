@@ -121,13 +121,13 @@ hr {
 /* LIST */
 
 .list-content {
-  height: 500px;
+  height: 80vh;
   overflow: auto;
   background: #fff;
 }
 
 .list {
-  padding-left: em;
+  padding-left: 1em;
 }
 
 input[type="checkbox"]:checked + label.strikethrough {
