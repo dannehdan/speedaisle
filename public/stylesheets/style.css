@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap");
 
 color_palette {
-  color: #125C13,
-  #3E7C17,
-  #F4A442,
-  #E8E1D9
+  color: #125c13, #3e7c17, #f4a442, #e8e1d9;
 }
 
 /* FULL SITE STYLING */
@@ -12,13 +9,13 @@ color_palette {
 body {
   padding: 0;
   margin: 0;
-  font: 14px 'IBM Plex Sans', sans-serif;
+  font: 14px "IBM Plex Sans", sans-serif;
   color: #4d5198;
 }
 
 h1 {
   font-weight: 700;
-  color: #F4A442!important;
+  color: #f4a442 !important;
   margin-top: 30px;
 }
 
@@ -33,7 +30,7 @@ h2 {
   margin-top: 0px;
 }
 
-.subtitle{
+.subtitle {
   font-style: italic;
   font-size: 1.5em;
 }
@@ -43,8 +40,8 @@ button {
   padding: 10px 30px;
 
   border-style: none;
-  background-color: #3E7C17;
-  color: #E8E1D9;
+  background-color: #3e7c17;
+  color: #e8e1d9;
   font-size: 16px;
 }
 
@@ -53,12 +50,13 @@ button {
   border-radius: 5px;
 }
 .abcRioButton.abcRioButtonLightBlue {
-  background-color: #3E7C17;
+  background-color: #3e7c17;
   border-radius: 5px;
 }
 
 .abcRioButtonContents {
-  color: #E8E1D9;
+  color: #e8e1d9;
+}
 
 hr {
   margin: 20px 0px;
@@ -68,19 +66,19 @@ hr {
 
 .navbar {
   padding: 10px;
-  background-color: #125C13;
+  background-color: #125c13;
 }
 
 .navbar-brand {
-  font-family: 'IBM Plex Sans', sans-serif;
-  color: #E8E1D9!important;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #e8e1d9 !important;
   font-weight: 700;
   font-size: 2em;
   font-style: italic;
 }
 
 .navbar a {
-  color: #E8E1D9!important;
+  color: #e8e1d9 !important;
 }
 
 .nav-item {
@@ -109,14 +107,14 @@ hr {
 }
 
 .title-content {
-  height: 100%;  
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.homepage-buttons button{
+.homepage-buttons button {
   margin: 20px 30px;
 }
 
@@ -124,15 +122,15 @@ hr {
 
 .list-content {
   height: 500px;
-  overflow:auto;
-  background:#fff;
+  overflow: auto;
+  background: #fff;
 }
 
 .list {
   padding-left: em;
 }
 
-input[type=checkbox]:checked + label.strikethrough{
+input[type="checkbox"]:checked + label.strikethrough {
   text-decoration: line-through;
   color: grey;
   font-style: italic;
@@ -158,7 +156,8 @@ input[type=checkbox]:checked + label.strikethrough{
   width: 25px;
 }
 
-.add-item-form input[type=text], select {
+.add-item-form input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -173,13 +172,13 @@ input[type=checkbox]:checked + label.strikethrough{
   justify-content: center;
 }
 
-input[type=submit] {
+input[type="submit"] {
   border-radius: 5px;
   padding: 10px 30px;
 
   border-style: none;
-  background-color: #3E7C17;
-  color: #E8E1D9;
+  background-color: #3e7c17;
+  color: #e8e1d9;
   font-size: 16px;
 }
 
