@@ -9,14 +9,18 @@ const ListsController = {
     const items = await list.getItems();
     const categorised = categories.map((category) => ({
       header: category,
-      items: [],
+      items: []
     }));
 
     for (const item of items) {
       categorised[item.categoryId].items.push(item);
     }
 
-    res.render("list/index", { title: "Your List", categorised: categorised });
+    res.render("list/index", { 
+      title: "Your List", 
+      categorised: categorised, 
+      hasItems: items.length > 0 
+    });
   },
 
   Add: async (req, res) => {
@@ -26,6 +30,11 @@ const ListsController = {
 
   Check: async(req, res) => {
     await list.updateCheck(req.body.postId, req.body.checked);
+  },
+
+  Clean: async(req, res) => {
+    await list.removeItems(1);
+    res.redirect("/list");
   }
 };
 
