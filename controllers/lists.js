@@ -7,8 +7,16 @@ const ListsController = {
   Show: async (req, res) => {
     await category.populateTable();
     const items = await list.getItems();
+    const categorised = categories.map((category) => ({
+      header: category,
+      items: [],
+    }));
 
-    res.render("list/index", { title: "Your List", items: items });
+    for (const item of items) {
+      categorised[item.categoryId].items.push(item);
+    }
+
+    res.render("list/index", { title: "Your List", categorised: categorised });
   },
 
   Add: async (req, res) => {
