@@ -1,17 +1,51 @@
-<div class='container-fluid homepage-container'>
-  <div class='row' style='height: 100%'>
-    <div class='col-lg-7 title-content'>
-      <h1 class='title'>Welcome to SpeedAisle</h1>
-      <h3 class='subtitle'>The most efficient way to get your groceries</h3>
-      <div class='row'>
-        <div class='d-flex justify-content-center homepage-buttons'>
-          <button>Sign Up</button>
-          <button>Log In</button>
+<head>
+  <meta name="google-signin-client_id" content="588116689693-af8duu5dpqicmdai7ovfrcr5ii9bl4qb.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+  <div class='container-fluid homepage-container'>
+    <div class='row' style='height: 100%'>
+      <div class='col-lg-7 title-content'>
+        <h1 class='title'>Welcome to SpeedAisle</h1>
+        <h3 class='subtitle'>The most efficient way to get your groceries</h3>
+        <div class='row'>
+          <div class='d-flex justify-content-center homepage-buttons'>
+            <button data-onsuccess="onSignIn">Sign Up</button>
+            <button>Log In</button>
+            <div id="login-in-btn" class="g-signin2" data-onsuccess="onSignIn"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class='col-lg-5 hero-image d-md-block'>
-      <img src='images/hero-image.jpg'>
+      <div class='col-lg-5 hero-image d-md-block'>
+        <img src='images/hero-image.jpg'>
+      </div>
     </div>
   </div>
-</div>
+
+  <script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
+        });
+    }
+
+    function onSignIn(googleUser) {
+        var id_token = googleUser.getAuthResponse().id_token;
+        // console.log(id_token);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            console.log('Signed in as: ' + xhr.responseText);
+            if (xhr.responseText == 'success'){
+                signOut();
+                location.assign('/list')
+            }
+        };
+        xhr.send(JSON.stringify({token : id_token}));
+      }
+  </script>
+</body>
