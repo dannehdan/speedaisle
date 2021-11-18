@@ -2,8 +2,10 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 class List {
-  getItems() {
-    return [];
+  async getItems() {
+    const items = await prisma.items.findMany({ where: {} });
+
+    return items;
   }
 
   async addItem(name, listId, categoryId) {
