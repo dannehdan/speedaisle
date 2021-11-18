@@ -111,7 +111,7 @@ hr {
 /* LIST */
 
 .list {
-  padding-left: 1rem;
+  padding-left: 1em;
 }
 
 input[type=checkbox]:checked + label.strikethrough{
@@ -123,11 +123,10 @@ input[type=checkbox]:checked + label.strikethrough{
 /* Customize the label (the container) */
 .checkbox {
   display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -135,11 +134,10 @@ input[type=checkbox]:checked + label.strikethrough{
 }
 
 .checkbox input {
-  position: absolute;
   top: 0;
   left: 0;
-  height: 17px;
-  width: 35px;
+  height: 20px;
+  width: 25px;
 }
 
 .add-item-form input[type=text], select {
