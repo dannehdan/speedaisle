@@ -11,9 +11,7 @@
         <h3 class='subtitle'>The most efficient way to get your groceries</h3>
         <div class='row'>
           <div class='d-flex justify-content-center homepage-buttons'>
-            <button data-onsuccess="onSignIn">Sign Up</button>
-            <button>Log In</button>
-            <div id="login-in-btn" class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
           </div>
         </div>
       </div>
@@ -46,6 +44,6 @@
             }
         };
         xhr.send(JSON.stringify({token : id_token}));
-      }
+    }
   </script>
 </body>
