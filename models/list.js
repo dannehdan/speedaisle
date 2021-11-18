@@ -22,25 +22,22 @@ class List {
   }
 
   async updateCheck(id, checked) {
-    if(checked == 'checked') {
-      await prisma.items.update({
-        where: {
-          id: id
-        },
-        data: {
-          checked: true
-        }
-      });
-    } else {
-      await prisma.items.update({
-        where: {
-          id: id
-        },
-        data: {
-          checked: false
-        }
-      });
-    }
+    await prisma.items.update({
+      where: {
+        id: id
+      },
+      data: {
+        checked: checked == 'checked'
+      }
+    });
+  }
+
+  async removeItems(listId) {
+    await prisma.items.deleteMany({
+      where: {
+        listId: listId
+      }
+    });
   }
 }
 
