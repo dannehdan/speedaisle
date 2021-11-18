@@ -6,7 +6,7 @@ var addCheck = id => {
   }
 
   const likeUrl = '/list/check';
-  const data = { postId: id, check: document.getElementById(id).getAttribute('checked')};
+  const data = { postId: id, checked: document.getElementById(id).getAttribute('checked')};
 
   fetch(likeUrl, {
       method: 'PATCH', // or 'PUT'
@@ -23,9 +23,5 @@ var addCheck = id => {
         console.error('Error:', error);
       });
 
-    if (document.getElementById(id).getAttribute('checked')) {
-      console.log('Found id');
-    } else {
-      console.log('Id not found');
-    }
+    return;
 };

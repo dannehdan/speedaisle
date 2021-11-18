@@ -3,7 +3,12 @@ const prisma = new PrismaClient();
 
 class List {
   async getItems() {
-    const items = await prisma.items.findMany({ where: {} });
+    const items = await prisma.items.findMany({ 
+      where: {},
+      orderBy: {
+          checked: 'asc'
+        }
+    });
 
     return items;
   }
@@ -23,7 +28,7 @@ class List {
           id: id
         },
         data: {
-          checked: false
+          checked: true
         }
       });
     } else {
@@ -32,7 +37,7 @@ class List {
           id: id
         },
         data: {
-          checked: true
+          checked: false
         }
       });
     }
