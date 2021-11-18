@@ -23,6 +23,10 @@ const ListsController = {
     await list.addItem(req.body.item, 1, req.body.category);
     res.redirect("/list");
   },
+
+  Check: async(req, res) => {
+    await list.updateCheck(req.body.postId, req.body.checked);
+  }
 };
 
 module.exports = ListsController;

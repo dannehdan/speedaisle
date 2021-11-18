@@ -29,8 +29,8 @@
       <ul class="test-list list">
         {{#each this.items}}
           <div class='checkbox'>
-            <input type="checkbox" name="packersOff" id="packers" value="1"/>
-            <label for="packers" class="strikethrough">{{this.name}}</label>
+            <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
+            <label for={{this.id}} class="strikethrough">{{this.name}}</label>
           </div>
         {{/each}}
       </ul>
@@ -38,3 +38,4 @@
     {{/each}}
   </div>
 </div>
+<script src="javascripts/interface.js"></script>

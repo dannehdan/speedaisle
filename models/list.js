@@ -15,6 +15,28 @@ class List {
 
     return [name];
   }
+
+  async updateCheck(id, checked) {
+    if(checked == 'checked') {
+      await prisma.items.update({
+        where: {
+          id: id
+        },
+        data: {
+          checked: false
+        }
+      });
+    } else {
+      await prisma.items.update({
+        where: {
+          id: id
+        },
+        data: {
+          checked: true
+        }
+      });
+    }
+  }
 }
 
 module.exports = List;
