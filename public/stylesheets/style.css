@@ -22,6 +22,12 @@ h1 {
   margin-top: 30px;
 }
 
+h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
 .title {
   font-size: 3em;
   margin-top: 0px;
@@ -40,6 +46,10 @@ button, #login-in-btn {
   background-color: #3E7C17;
   color: #E8E1D9;
   font-size: 16px;
+}
+
+hr {
+  margin: 20px 0px;
 }
 
 /* NAVBAR */
@@ -100,6 +110,10 @@ button, #login-in-btn {
 
 /* LIST */
 
+.list {
+  padding-left: 1rem;
+}
+
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;
   color: grey;
@@ -113,7 +127,7 @@ input[type=checkbox]:checked + label.strikethrough{
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -124,8 +138,8 @@ input[type=checkbox]:checked + label.strikethrough{
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 35px;
 }
 
 .add-item-form input[type=text], select {
