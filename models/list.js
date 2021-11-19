@@ -40,6 +40,14 @@ class List {
       },
     });
   }
+
+  async deleteItem(name) {
+    await prisma.items.deleteMany({
+      where: {
+        name: name,
+      }
+    })
+  }
 }
 
 module.exports = List;

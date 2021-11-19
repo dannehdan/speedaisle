@@ -141,12 +141,18 @@ input[type="checkbox"]:checked + label.strikethrough {
   display: block;
   padding-left: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+img#trash-can {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 .checkbox input {
