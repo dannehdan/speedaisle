@@ -29,7 +29,7 @@ You can find the Trello board to follow along with the build, or log isses and i
 
 Since Prisma doesn't really support multiple databases out of the box, I had to find some janky way to do it.
 
-1. copy the new `TEST_DATABASE_URL` line into your `.env` file
+1. copy the new `TEST_DATABASE_URL` line from `.env.example` into your `.env` file
 2. repeat step 4
 3. repeat step 5 but with `speedaisle_test` as the database name
 4. now, go into the `schema.prisma` file and change line 10 from `url = env("DATABASE_URL")` to `url = env("TEST_DATABASE_URL")` temporarily so that you can populate the necessary tables in the next step
