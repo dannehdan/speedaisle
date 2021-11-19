@@ -1,6 +1,6 @@
-const { PrismaClient } = require("@prisma/client");
+const getDBType = require("../utils/getDBType");
 
-const prisma = new PrismaClient();
+const prisma = getDBType();
 
 const categories = [
   "Fruits & Vegs",
