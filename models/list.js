@@ -1,13 +1,14 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const getDBType = require("../utils/getDBType");
+
+const prisma = getDBType();
 
 class List {
   async getItems() {
-    const items = await prisma.items.findMany({ 
+    const items = await prisma.items.findMany({
       where: {},
       orderBy: {
-          checked: 'asc'
-        }
+        checked: "asc",
+      },
     });
 
     return items;
@@ -24,19 +25,19 @@ class List {
   async updateCheck(id, checked) {
     await prisma.items.update({
       where: {
-        id: id
+        id: id,
       },
       data: {
-        checked: checked == 'checked'
-      }
+        checked: checked == "checked",
+      },
     });
   }
 
   async removeItems(listId) {
     await prisma.items.deleteMany({
       where: {
-        listId: listId
-      }
+        listId: listId,
+      },
     });
   }
 }
