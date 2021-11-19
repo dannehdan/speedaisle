@@ -28,29 +28,33 @@
     </div>
   </form>
   <hr>
-  <div class='list-content'>
-   {{#if hasItems }}
-    {{#each categorised}}
-      {{#if this.items.length }}
-      <h2>{{this.header}}</h2>
-      <ul class="list">
-        {{#each this.items}}
-          <div class='checkbox'>
-            <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
-            <label for={{this.id}} class="strikethrough">{{this.name}}</label>
-          </div>
-        {{/each}}
-      </ul>
+  <div class='row'>
+    <div class='col list-content'>
+    {{#if hasItems }}
+      {{#each categorised}}
+        {{#if this.items.length }}
+        <h2>{{this.header}}</h2>
+        <ul class="list">
+          {{#each this.items}}
+            <div class='checkbox'>
+              <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
+              <label for={{this.id}} class="strikethrough">{{this.name}}</label>
+            </div>
+          {{/each}}
+        </ul>
+        {{/if}}
+      {{/each}}
+      <form class="test-remove-all-form" action="/list/clean" method="get">
+          <input class="test-remove-all-btn" type="submit" value="delete all" />
+        </form>
+      {{else}}
+        <h3 class='message'>
+          Your list is empty!
+        </h3>
       {{/if}}
-    {{/each}}
-    <form class="test-remove-all-form" action="/list/clean" method="get">
-        <input class="test-remove-all-btn" type="submit" value="delete all" />
-      </form>
-    {{else}}
-      <h3 class='message'>
-        Your list is empty!
-      </h3>
-    {{/if}}
-  </div>
+    </div>
+    <div class='col'>
+      <p>hello</p>
+    </div>
 </div>
 <script src="javascripts/interface.js"></script>
