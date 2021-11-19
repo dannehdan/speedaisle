@@ -29,6 +29,11 @@
   </form>
   <hr>
   <div class='row'>
+    {{#if hasItems }}
+      <form class="test-remove-all-form" action="/list/clean" method="get">
+        <input class="test-remove-all-btn" type="submit" value="delete all" />
+      </form>
+    {{/if}}
     <div class='col list-content'>
     {{#if hasItems }}
       {{#each categorised}}
