@@ -54,7 +54,25 @@
       {{/if}}
     </div>
     <div class='col'>
-      <p>hello</p>
-    </div>
+      <h2>Your local store</h2>
+      <div id="map" class="map"></div>
+        <script type="text/javascript">
+          var map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([-0.1243687, 51.5306758]),
+              zoom: 19
+            })
+          });
+        </script>
+        <div style='text-align:center; margin:20px;'>
+          <a href="/location">Change your local store</a>
+        </div>
+      </div>
 </div>
 <script src="javascripts/interface.js"></script>
