@@ -20,7 +20,7 @@ model items {
   name       String
   listId     Int
   categoryId Int
-  checked     Boolean    @default(false)
+  checked    Boolean    @default(false)
   category   categories @relation(fields: [categoryId], references: [id])
 }
 
@@ -41,5 +41,7 @@ model stores {
   id            Int               @id @default(autoincrement())
   name          String
   address       String
+  latitude      Float
+  longitude     Float
   categoryOrder category_orders[]
 }
