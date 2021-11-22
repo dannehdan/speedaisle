@@ -5,19 +5,22 @@
       <form class="add-item-form" action="/list/additem" method="post">
         <div class='row'>
           <div class='d-flex justify-content-center homepage-buttons'>
-            <input
+            <select
               class="item-input"
               id="new-location"
               name="new-location"
               type="text"
               placeholder="Find store..."
               required
-            />
+            >
+            {{#each stores}}
+            <option>{{this.name}}</option>
+            {{/each}}
+            </select>
           </div>
         </div>
           <div class='row'>
             <div class='d-flex justify-content-center'>
-              <input class="add-item-btn" type="submit" name="search" value="Search" />
               <input class="add-item-btn" type="submit" name="update" value="Set new location" />
             </div>
           </div>

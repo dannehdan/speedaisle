@@ -78,6 +78,12 @@ class Store {
       });
     }
   }
+
+  async getStores() {
+    const stores = await prisma.stores.findMany({});
+
+    return stores;
+  }
 }
 
 module.exports = Store;

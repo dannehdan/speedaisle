@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/", function (req, res, next) {
-  res.render("location/index");
-});
+const LocationController = require("../controllers/location");
+
+router.get("/", LocationController.Show);
 
 module.exports = router;
