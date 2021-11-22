@@ -92,6 +92,14 @@ class Store {
 
     return currentStore;
   }
+
+  async getNewStore(storeName) {
+    const newStore = await prisma.stores.findFirst({
+      where: { name: storeName },
+    });
+
+    return newStore;
+  }
 }
 
 module.exports = Store;

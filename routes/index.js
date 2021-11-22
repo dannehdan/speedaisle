@@ -43,18 +43,28 @@ router.get("/", function (req, res, next) {
 router.post("/", (req, res, next) => {
   let token = req.body.token;
 
+  let userId;
   async function verify() {
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
     });
     const payload = ticket.getPayload();
-    const userId = payload["sub"];
+    userId = payload["sub"];
 
-    await prisma.lists.create({ data: { ownerId: userId } });
+    const existingList = await prisma.lists.findFirst({
+      where: { ownerId: userId },
+    });
+
+    if (existingList) {
+      return;
+    } else {
+      await prisma.lists.create({ data: { ownerId: userId } });
+    }
   }
   verify()
     .then(() => {
+      res.cookie("userId", userId);
       res.cookie("session-token", token);
       res.send("success");
     })
