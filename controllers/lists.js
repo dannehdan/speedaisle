@@ -11,7 +11,11 @@ const ListsController = {
     await category.populateTable();
     await store.populateStoreInfo();
 
-    const currentStore = await store.getCurrentStore(1);
+    const userId = req.cookies.userId;
+
+    const userStore = await list.findList(userId);
+
+    const currentStore = await store.getCurrentStore(userStore.local_store);
 
     const items = await list.getItems();
     const categorised = categories.map((category) => ({
