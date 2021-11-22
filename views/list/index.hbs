@@ -35,10 +35,10 @@
       <h2>{{this.header}}</h2>
       <ul class="list">
         {{#each this.items}}
-          <div class='checkbox'>
-            <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
+          <div class='checkbox {{this.id}}'>
+            <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}} checked='checked'{{/if}}/>
             <label for={{this.id}} class="strikethrough">{{this.name}}</label>
-            <img id="trash-can" src="images/trash-can.png">
+            <img class="trash-can" id="remove-{{this.id}}" src="images/trash-can.png" onclick="deleteItem({{this.id}})">
           </div>
         {{/each}}
       </ul>

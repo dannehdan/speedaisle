@@ -41,10 +41,10 @@ class List {
     });
   }
 
-  async deleteItem(name) {
-    await prisma.items.deleteMany({
+  async deleteItem(itemId) {
+    await prisma.items.delete({
       where: {
-        name: name,
+        id: itemId
       }
     })
   }

@@ -149,7 +149,7 @@ input[type="checkbox"]:checked + label.strikethrough {
   user-select: none;
 }
 
-img#trash-can {
+img.trash-can {
   cursor: pointer;
   width: 20px;
   height: 20px;
