@@ -11,6 +11,8 @@ const ListsController = {
     await category.populateTable();
     await store.populateStoreInfo();
 
+    const currentStore = await store.getCurrentStore(1);
+
     const items = await list.getItems();
     const categorised = categories.map((category) => ({
       header: category,
@@ -25,6 +27,7 @@ const ListsController = {
       title: "Your List",
       categorised: categorised,
       hasItems: items.length > 0,
+      store: currentStore,
     });
   },
 
