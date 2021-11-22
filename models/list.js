@@ -10,6 +10,7 @@ class List {
       orderBy: {
         checked: "asc",
       },
+    })
 
 // todo - persist the user data for deployment
 //   async getItems(listId = 1) {
@@ -21,7 +22,6 @@ class List {
 //         checked: "asc",
 //       }
 //     });
-    }
     return items;
   }
 
