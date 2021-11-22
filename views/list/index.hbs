@@ -28,7 +28,7 @@
     </div>
   </form>
   <hr>
-  <div class='list-content'>
+  <div class='list-content row'>
    {{#if hasItems }}
     {{#each categorised}}
       {{#if this.items.length }}
@@ -45,13 +45,54 @@
       {{/if}}
     {{/each}}
     <form class="test-remove-all-form" action="/list/clean" method="get">
-        <input class="test-remove-all-btn" type="submit" value="delete all" />
-      </form>
-    {{else}}
-      <h3 class='message'>
-        Your list is empty!
-      </h3>
+      <input class="test-remove-all-btn" type="submit" value="delete all" />
+    </form>
     {{/if}}
-  </div>
+    <div class='col list-content'>
+    {{#if hasItems }}
+      {{#each categorised}}
+        {{#if this.items.length }}
+        <h2>{{this.header}}</h2>
+        <ul class="list">
+          {{#each this.items}}
+            <div class='checkbox'>
+              <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}}checked='checked'{{/if}}/>
+              <label for={{this.id}} class="strikethrough">{{this.name}}</label>
+            </div>
+          {{/each}}
+        </ul>
+        {{/if}}
+      {{/each}}
+      <form class="test-remove-all-form" action="/list/clean" method="get">
+          <input class="test-remove-all-btn" type="submit" value="delete all" />
+        </form>
+      {{else}}
+        <h3 class='message'>
+          Your list is empty!
+        </h3>
+      {{/if}}
+    </div>
+    <div class='col'>
+      <h2>Your local store</h2>
+      <p>{{store.name}}: {{store.address}}</p>
+      <div id="map" class="map"></div>
+        <script type="text/javascript">
+          var map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([{{store.longitude}}, {{store.latitude}}]),
+              zoom: 19
+            })
+          });
+        </script>
+        <div style='text-align:center; margin:20px;'>
+          <a href="/location">Change your local store</a>
+        </div>
+      </div>
 </div>
 <script src="javascripts/interface.js"></script>

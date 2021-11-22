@@ -1,0 +1,47 @@
+<div class='container-fluid homepage-container'>
+  <div class='row' style='height: 50%'>
+    <div class='col-sm-6 title-content'>
+      <h2>Search for your local store</h2>
+      <form class="add-item-form" action="/location/update" method="post">
+        <div class='row'>
+          <div class='d-flex justify-content-center homepage-buttons'>
+            <select
+              class="item-input"
+              id="new-location"
+              name="new-location"
+              required
+            >
+            {{#each stores}}
+            <option>{{this.name}}</option>
+            {{/each}}
+            </select>
+          </div>
+        </div>
+          <div class='row'>
+            <div class='d-flex justify-content-center'>
+              <input class="add-item-btn" type="submit" name="update" value="Set new location" />
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class='col-sm-6 hero-image'>
+      <p>{{currentStore.name}}: {{currentStore.address}}</p>
+      <div id="map" class="map"></div>
+        <script type="text/javascript">
+          var map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([{{currentStore.longitude}}, {{currentStore.latitude}}]),
+              zoom: 19
+            })
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
