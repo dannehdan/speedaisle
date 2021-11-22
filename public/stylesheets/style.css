@@ -76,14 +76,14 @@ hr {
 
 .navbar-brand {
   font-family: "IBM Plex Sans", sans-serif;
-  color: #e8e1d9 !important;
+  color:white!important;
   font-weight: 700;
   font-size: 2em;
   font-style: italic;
 }
 
 .navbar a {
-  color: #e8e1d9 !important;
+  color: white !important;
 }
 
 .nav-item {
