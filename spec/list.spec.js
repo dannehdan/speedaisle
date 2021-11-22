@@ -42,6 +42,7 @@ describe("List model", function () {
     expect(await itemIsChecked(id)).toEqual(true);
   });
 
+  // TODO: Add test for removing 1 item from list
   // it ("delete individual items", () => {
   //   const list = new List()
   //   list.removeItems()
