@@ -24,7 +24,8 @@ const ListsController = {
   },
 
   Add: async (req, res) => {
-    await list.addItem(req.body.item, 1, req.body.category);
+    const listId = 1;
+    await list.addItem(req.body.item, listId, req.body.category);
     res.redirect("/list");
   },
 
@@ -33,8 +34,13 @@ const ListsController = {
   },
 
   Clean: async(req, res) => {
-    await list.removeItems(1);
+    const listId = 1;
+    await list.removeItems(listId);
     res.redirect("/list");
+  },
+
+  ShowOrder: (req, res) => {
+    res.render('list/categoriesorder', { title: 'Reorder categories', categories: categories });
   }
 };
 

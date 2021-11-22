@@ -12,23 +12,24 @@ function checkAuthenticated(req, res, next){
 
   let user = {};
   async function verify() {
-      const ticket = await client.verifyIdToken({
-          idToken: token,
-          audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-      });
-      const payload = ticket.getPayload();
-      user.name = payload.name;
-      user.email = payload.email;
-      user.picture = payload.picture;
-    }
-    verify()
-    .then(()=>{
-        req.user = user;
-        next();
-    })
-    .catch(err=>{
-        res.redirect('/')
-    })
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+    });
+    const payload = ticket.getPayload();
+    user.name = payload.name;
+    user.email = payload.email;
+    user.picture = payload.picture;
+  }
+  
+  verify()
+  .then(()=>{
+    req.user = user;
+    next();
+  })
+  .catch(err=>{
+    res.redirect('/')
+  })
 }
 
 /* GET list listing. */
@@ -36,5 +37,6 @@ router.get('/', checkAuthenticated, ListsController.Show);
 router.post('/additem', ListsController.Add);
 router.patch('/check', ListsController.Check);
 router.get('/clean', ListsController.Clean);
+router.get('/categoriesorder', ListsController.ShowOrder);
 
 module.exports = router;

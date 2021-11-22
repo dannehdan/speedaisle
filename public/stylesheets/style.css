@@ -185,3 +185,26 @@ input[type="submit"] {
 .list {
   margin-top: 10px;
 }
+
+/* CATEGORIES SORTABLE */
+.reorder-title {
+  margin: 1rem auto;
+  max-width: max-content;
+}
+.categories-container {
+  padding: 1rem;
+  max-width: max-content;
+  margin: 1rem auto;
+}
+.category-ghost {
+  opacity: .4;
+}
+.category-draggable {
+  box-sizing: border-box;
+  background-color: #3e7c17;
+  color: white;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  margin: .5rem 0;
+  cursor: move;
+}
