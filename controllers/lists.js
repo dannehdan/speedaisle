@@ -41,6 +41,11 @@ const ListsController = {
 
   ShowOrder: (req, res) => {
     res.render('list/categoriesorder', { title: 'Reorder categories', categories: categories });
+  },
+
+  ChangeOrder: async (req, res) => {
+    // TODO: save t the DB
+    res.json({result: 'done!'});
   }
 };
 

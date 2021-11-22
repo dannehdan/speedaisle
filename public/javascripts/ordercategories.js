@@ -40,7 +40,7 @@ function sortable(listEl, onUpdate) {
     listEl.removeEventListener('dragover', _onDragOver, false);
     listEl.removeEventListener('dragend', _onDragEnd, false);
     
-    onUpdate(dragEl);
+    onUpdate();
   }
   
   listEl.addEventListener('dragstart', function (event){
@@ -58,6 +58,22 @@ function sortable(listEl, onUpdate) {
   }, false);
 }
 
-sortable(list, function (item) {
-  console.log(`TODO: save new position of ${item.textContent} to the db`);
+sortable(list, () => {
+  const reordered = Array.from(document.querySelectorAll('.js-category-draggable')).map(el => el.innerText);
+  // console.log(reordered);
+
+  const data = { reordered: reordered}
+  fetch('/list/categoriesorder', {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    console.log('Success!');
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  })
 });

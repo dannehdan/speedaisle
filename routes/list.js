@@ -38,5 +38,6 @@ router.post('/additem', ListsController.Add);
 router.patch('/check', ListsController.Check);
 router.get('/clean', ListsController.Clean);
 router.get('/categoriesorder', ListsController.ShowOrder);
+router.patch('/categoriesorder', ListsController.ChangeOrder);
 
 module.exports = router;

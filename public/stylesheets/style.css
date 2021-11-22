@@ -204,7 +204,7 @@ input[type="submit"] {
   background-color: #3e7c17;
   color: white;
   border-radius: 5px;
-  padding: .5rem 1rem;
+  padding: .5rem 2.5rem;
   margin: .5rem 0;
   cursor: move;
 }
