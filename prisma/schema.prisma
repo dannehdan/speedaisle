@@ -11,8 +11,9 @@ datasource db {
 }
 
 model lists {
-  id      Int @id @default(autoincrement())
-  ownerId Int
+  id          Int    @id @default(autoincrement())
+  ownerId     String
+  local_store Int    @default(1)
 }
 
 model items {
@@ -41,5 +42,7 @@ model stores {
   id            Int               @id @default(autoincrement())
   name          String
   address       String
+  latitude      Float
+  longitude     Float
   categoryOrder category_orders[]
 }

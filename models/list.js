@@ -3,16 +3,25 @@ const getDBType = require("../utils/getDBType");
 const prisma = getDBType();
 
 class List {
-  async getItems(listId = 1) {
+
+  async getItems() {
     const items = await prisma.items.findMany({
-      where: {
-        listId: listId
-      },
+      where: {},
       orderBy: {
         checked: "asc",
-      }
-    });
+      },
+    })
 
+// todo - persist the user data for deployment
+//   async getItems(listId = 1) {
+//     const items = await prisma.items.findMany({
+//       where: {
+//         listId: listId
+//       },
+//       orderBy: {
+//         checked: "asc",
+//       }
+//     });
     return items;
   }
 
@@ -39,10 +48,30 @@ class List {
   async removeItems(listId) {
     let removed = await prisma.items.deleteMany({
       where: {
-        listId: listId
+        listId: listId,
       },
     });
     return removed.count;
+  }
+
+  async updateStore(userId, storeId) {
+    const userList = await prisma.lists.findFirst({
+      where: { ownerId: userId },
+    });
+
+    await prisma.lists.update({
+      where: { id: userList.id },
+      data: { local_store: storeId },
+    });
+  }
+
+  async findList(userId) {
+    const userStore = await prisma.lists.findFirst({
+      where: { ownerId: userId },
+    });
+
+    return userStore;
+
   }
 }
 
