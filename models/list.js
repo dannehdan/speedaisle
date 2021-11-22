@@ -54,6 +54,14 @@ class List {
     return removed.count;
   }
 
+  async deleteItem(itemId) {
+    await prisma.items.delete({
+      where: {
+        id: itemId
+      }
+    })
+  }
+  
   async updateStore(userId, storeId) {
     const userList = await prisma.lists.findFirst({
       where: { ownerId: userId },
@@ -71,7 +79,6 @@ class List {
     });
 
     return userStore;
-
   }
 }
 

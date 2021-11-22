@@ -42,6 +42,15 @@ describe("List model", function () {
     expect(await itemIsChecked(id)).toEqual(true);
   });
 
+  // TODO: Add test for removing 1 item from list
+  // it ("delete individual items", () => {
+  //   const list = new List()
+  //   list.removeItems()
+  //   list.addItem("apple", 1, "0")
+  //   list.deleteItem("apple")
+  //   expect(list.getItems()).resolves.toEqual([])
+  // })
+  
   it("removes all items from list in db", async () => {
     const list = new List();
     const id = await list.addItem("oranges", 1, "0");
@@ -49,5 +58,5 @@ describe("List model", function () {
 
     expect(await countItemsInList(listId)).toEqual(await list.removeItems(listId));
     expect(await countItemsInList(listId)).toEqual(0);
-  })
+  });
 });

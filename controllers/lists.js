@@ -48,6 +48,10 @@ const ListsController = {
     await list.removeItems(1);
     res.redirect("/list");
   },
+
+  Remove: async(req, res) => {
+    await list.deleteItem(req.body.removeId)
+  }
 };
 
 module.exports = ListsController;

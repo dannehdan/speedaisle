@@ -25,3 +25,28 @@ var addCheck = id => {
 
     return;
 };
+
+var deleteItem = id => {
+  var itemDiv = document.getElementsByClassName(`${id}`)[0]
+  itemDiv.style.display = 'none';
+
+  const removeUrl = '/list/remove'
+  const data = { removeId: id }
+
+  fetch(removeUrl, {
+    method: 'DELETE', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+  return;
+}
