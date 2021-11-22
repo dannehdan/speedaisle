@@ -2,7 +2,7 @@
   <div class='row' style='height: 50%'>
     <div class='col-sm-6 title-content'>
       <h2>Search for your local store</h2>
-      <form class="add-item-form" action="/list/additem" method="post">
+      <form class="add-item-form" action="/location/update" method="post">
         <div class='row'>
           <div class='d-flex justify-content-center homepage-buttons'>
             <select
@@ -25,6 +25,7 @@
       </form>
     </div>
     <div class='col-sm-6 hero-image'>
+      <p>{{currentStore.name}}: {{currentStore.address}}</p>
       <div id="map" class="map"></div>
         <script type="text/javascript">
           var map = new ol.Map({
@@ -35,7 +36,7 @@
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([-1.29916, 54.55466]),
+              center: ol.proj.fromLonLat([{{currentStore.longitude}}, {{currentStore.latitude}}]),
               zoom: 19
             })
           });
