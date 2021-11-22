@@ -3,42 +3,46 @@ const getDBType = require("../utils/getDBType");
 const prisma = getDBType();
 
 class List {
-  async getItems() {
+  async getItems(listId = 1) {
     const items = await prisma.items.findMany({
-      where: {},
+      where: {
+        listId: listId
+      },
       orderBy: {
         checked: "asc",
-      },
+      }
     });
 
     return items;
   }
 
   async addItem(name, listId, categoryId) {
-    await prisma.items.create({
+    const item = await prisma.items.create({
       data: { name: name, listId: listId, categoryId: Number(categoryId) },
     });
 
-    return [name];
+    return item.id;
   }
 
   async updateCheck(id, checked) {
-    await prisma.items.update({
+    const item = await prisma.items.update({
       where: {
         id: id,
       },
       data: {
         checked: checked == "checked",
-      },
+      }
     });
+    return item.checked;
   }
 
   async removeItems(listId) {
-    await prisma.items.deleteMany({
+    let removed = await prisma.items.deleteMany({
       where: {
-        listId: listId,
+        listId: listId
       },
     });
+    return removed.count;
   }
 
   async deleteItem(itemId) {

@@ -34,7 +34,7 @@ Since Prisma doesn't really support multiple databases out of the box, I had to 
 3. repeat step 5 but with `speedaisle_test` as the database name
 4. now, go into the `schema.prisma` file and change line 10 from `url = env("DATABASE_URL")` to `url = env("TEST_DATABASE_URL")` temporarily so that you can populate the necessary tables in the next step
 5. repeat step 6
-6. dont forget to undo step 10 after your test database has been populated
+6. dont forget to undo step 4 after your test database has been populated
 
 thats it hopefully, if you have any issues just message on Slack
 
