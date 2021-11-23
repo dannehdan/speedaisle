@@ -6,27 +6,32 @@ const store = new Store();
 
 const LocationController = {
   Show: async (req, res) => {
-    const stores = await store.getStores();
-    const currentStore = await store.getCurrentStore();
+    const stores = await store.getAllStores();
+    const curList = await list.findListByUser(req.cookies.userId)
+    const currentStore = await store.getStoreById(curList.storeId);
 
+    stores[currentStore.id - 1].selected = true;
+    
     res.render("location/index", {
       stores: stores,
       currentStore: currentStore,
     });
   },
-  Update: async (req, res) => {
-    const newStore = await store.getNewStore(req.body["new-location"]);
 
+
+  Update: async (req, res) => {
+    const newStore = await store.getStoreByName(req.body["new-location"]);
     const userId = req.cookies.userId;
 
     list.updateStore(userId, newStore.id);
 
-    const stores = await store.getStores();
-    const currentStore = await store.getCurrentStore(newStore.id);
+    const stores = await store.getAllStores();
+    const currentStore = await store.getStoreById(newStore.id);
+    stores[currentStore.id - 1].selected = true;
 
     res.render("location/index", {
       stores: stores,
-      currentStore: currentStore,
+      currentStore: currentStore
     });
   },
 };

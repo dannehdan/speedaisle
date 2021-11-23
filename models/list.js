@@ -3,25 +3,17 @@ const getDBType = require("../utils/getDBType");
 const prisma = getDBType();
 
 class List {
-
-  async getItems() {
+  
+  // todo - persist the user data for deployment
+  async getItems(listId) {
     const items = await prisma.items.findMany({
-      where: {},
+      where: {
+        listId: listId
+      },
       orderBy: {
         checked: "asc",
-      },
-    })
-
-// todo - persist the user data for deployment
-//   async getItems(listId = 1) {
-//     const items = await prisma.items.findMany({
-//       where: {
-//         listId: listId
-//       },
-//       orderBy: {
-//         checked: "asc",
-//       }
-//     });
+      }
+    });
     return items;
   }
 
@@ -45,15 +37,37 @@ class List {
     return item.checked;
   }
 
-  async removeItems(listId) {
+  async removeAllItems(listId) {
     let removed = await prisma.items.deleteMany({
       where: {
         listId: listId,
       },
     });
+
     return removed.count;
   }
 
+  async updateCategoriesOrder(listId, reordered) {
+    const list = await prisma.lists.findFirst({
+      where: { id: listId }
+    });
+
+    for (let i = 0; i < reordered.length; i++) {
+      const category = await prisma.categories.findFirst({
+        where: { name: reordered[i] }
+      });
+
+      // updateFirst had issues with more than one where condition
+      await prisma.category_orders.updateMany({
+        where: {
+          storeId: list.storeId,
+          categoryId: category.id 
+        },
+        data: { categoryPosition: i }
+      });
+    }
+  }
+    
   async deleteItem(itemId) {
     await prisma.items.delete({
       where: {
@@ -69,16 +83,16 @@ class List {
 
     await prisma.lists.update({
       where: { id: userList.id },
-      data: { local_store: storeId },
+      data: { storeId: storeId },
     });
   }
 
-  async findList(userId) {
-    const userStore = await prisma.lists.findFirst({
+  async findListByUser(userId) {
+    const list = await prisma.lists.findFirst({
       where: { ownerId: userId },
     });
 
-    return userStore;
+    return list;
   }
 }
 

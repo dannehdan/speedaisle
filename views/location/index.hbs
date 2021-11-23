@@ -12,7 +12,11 @@
               required
             >
             {{#each stores}}
-            <option>{{this.name}}</option>
+              {{#if this.selected}}
+                <option selected="selected" >{{this.name}}</option>
+              {{else}}
+                <option>{{this.name}}</option>
+              {{/if}}
             {{/each}}
             </select>
           </div>
