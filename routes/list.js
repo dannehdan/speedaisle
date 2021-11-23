@@ -32,13 +32,12 @@ function checkAuthenticated(req, res, next){
   })
 }
 
-/* GET list listing. */
 router.get('/', checkAuthenticated, ListsController.Show);
 router.post('/additem', ListsController.Add);
 router.patch('/check', ListsController.Check);
+router.delete('/remove', ListsController.Remove);
 router.get('/clean', ListsController.Clean);
 router.get('/categoriesorder', ListsController.ShowOrder);
 router.patch('/categoriesorder', ListsController.ChangeOrder);
-router.delete('/remove', ListsController.Remove)
 
 module.exports = router;

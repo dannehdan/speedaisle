@@ -12,9 +12,9 @@ datasource db {
 
 model lists {
   id      Int    @id @default(autoincrement())
-  ownerId Int
-  storeId Int
-  store   stores @relation(fields: [storeId], references: [id])
+  ownerId String
+  storeId Int    @default(1)
+  // store   stores @relation(fields: [storeId], references: [id])
 }
 
 model items {
@@ -49,5 +49,5 @@ model stores {
   latitude      Float
   longitude     Float
   categoryOrder category_orders[]
-  list          lists[]
+  // list          lists[]
 }

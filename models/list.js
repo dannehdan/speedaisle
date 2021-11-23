@@ -5,7 +5,7 @@ const prisma = getDBType();
 class List {
   
   // todo - persist the user data for deployment
-  async getItems(listId = 1) {
+  async getItems(listId) {
     const items = await prisma.items.findMany({
       where: {
         listId: listId
@@ -37,17 +37,35 @@ class List {
     return item.checked;
   }
 
-  async removeItems(listId) {
+  async removeAllItems(listId) {
     let removed = await prisma.items.deleteMany({
       where: {
         listId: listId,
       },
     });
+
     return removed.count;
   }
 
   async updateCategoriesOrder(listId, reordered) {
-    // TODO
+    const list = await prisma.lists.findFirst({
+      where: { id: listId }
+    });
+
+    for (let i = 0; i < reordered.length; i++) {
+      const category = await prisma.categories.findFirst({
+        where: { name: reordered[i] }
+      });
+
+      // updateFirst had issues with more than one where condition
+      await prisma.category_orders.updateMany({
+        where: {
+          storeId: list.storeId,
+          categoryId: category.id 
+        },
+        data: { categoryPosition: i }
+      });
+    }
   }
     
   async deleteItem(itemId) {
@@ -65,16 +83,16 @@ class List {
 
     await prisma.lists.update({
       where: { id: userList.id },
-      data: { local_store: storeId },
+      data: { storeId: storeId },
     });
   }
 
-  async findList(userId) {
-    const userStore = await prisma.lists.findFirst({
+  async findListByUser(userId) {
+    const list = await prisma.lists.findFirst({
       where: { ownerId: userId },
     });
 
-    return userStore;
+    return list;
   }
 }
 
