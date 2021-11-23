@@ -62,6 +62,11 @@ hr {
   margin: 20px 0px;
 }
 
+.map {
+  height: 400px;
+  width: 100%;
+}
+
 /* NAVBAR */
 
 .navbar {
@@ -71,14 +76,14 @@ hr {
 
 .navbar-brand {
   font-family: "IBM Plex Sans", sans-serif;
-  color: #e8e1d9 !important;
+  color:white!important;
   font-weight: 700;
   font-size: 2em;
   font-style: italic;
 }
 
 .navbar a {
-  color: #e8e1d9 !important;
+  color: white !important;
 }
 
 .nav-item {
@@ -141,12 +146,17 @@ input[type="checkbox"]:checked + label.strikethrough {
   display: block;
   padding-left: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
   font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+img.trash-can {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 .checkbox input {
@@ -180,6 +190,7 @@ input[type="submit"] {
   background-color: #3e7c17;
   color: #e8e1d9;
   font-size: 16px;
+  margin: 10px;
 }
 
 .list {

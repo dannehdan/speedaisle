@@ -43,9 +43,11 @@ model category_orders {
 }
 
 model stores {
-  id             Int               @id @default(autoincrement())
-  name           String
-  address        String
-  categoryOrders category_orders[]
-  list           lists[]
+  id            Int               @id @default(autoincrement())
+  name          String
+  address       String
+  latitude      Float
+  longitude     Float
+  categoryOrder category_orders[]
+  list          lists[]
 }

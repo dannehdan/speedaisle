@@ -39,5 +39,6 @@ router.patch('/check', ListsController.Check);
 router.get('/clean', ListsController.Clean);
 router.get('/categoriesorder', ListsController.ShowOrder);
 router.patch('/categoriesorder', ListsController.ChangeOrder);
+router.delete('/remove', ListsController.Remove)
 
 module.exports = router;
