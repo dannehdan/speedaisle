@@ -45,9 +45,21 @@
             ],
             view: new ol.View({
               center: ol.proj.fromLonLat([{{currentStore.longitude}}, {{currentStore.latitude}}]),
-              zoom: 19
+              zoom: 16
             })
           });
+
+          var layer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+              features: [
+                new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat([{{currentStore.longitude}}, {{currentStore.latitude}}]))
+                    })
+                ]
+              })
+            });
+            
+          map.addLayer(layer);
         </script>
     </div>
   </div>
