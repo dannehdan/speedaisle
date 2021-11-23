@@ -44,6 +44,10 @@ class List {
     });
     return removed.count;
   }
+
+  async updateCategoriesOrder(listId, reordered) {
+    
+  }
 }
 
 module.exports = List;

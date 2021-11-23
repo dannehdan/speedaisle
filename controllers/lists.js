@@ -44,7 +44,10 @@ const ListsController = {
   },
 
   ChangeOrder: async (req, res) => {
-    // TODO: save t the DB
+    // TODO: save to the DB
+    const listId = 1;
+    console.log("New order:\n", req.body.reordered);
+    await list.updateCategoriesOrder(listId, req.body.reordered);
     res.json({result: 'done!'});
   }
 };

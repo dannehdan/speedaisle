@@ -20,7 +20,6 @@ function sortable(listEl, onUpdate) {
   function _onDragOver(event) {
     event.preventDefault();
 
-    // console.log(event.dataTransfer);
     event.dataTransfer.dropEffect = 'move';
     const target = event.target;
 
@@ -43,7 +42,7 @@ function sortable(listEl, onUpdate) {
     onUpdate();
   }
   
-  listEl.addEventListener('dragstart', function (event){
+  listEl.addEventListener('dragstart', function (event) {
     dragEl = event.target;
 
     event.dataTransfer.effectAllowed = 'move';
@@ -60,9 +59,9 @@ function sortable(listEl, onUpdate) {
 
 sortable(list, () => {
   const reordered = Array.from(document.querySelectorAll('.js-category-draggable')).map(el => el.innerText);
-  // console.log(reordered);
+  console.log(reordered);
 
-  const data = { reordered: reordered}
+  const data = { reordered: reordered };
   fetch('/list/categoriesorder', {
     method: 'PATCH',
     headers: {
