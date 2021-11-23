@@ -37,6 +37,7 @@ function checkAuthenticated(req, res, next) {
 }
 
 router.get("/", function (req, res, next) {
+  console.log(req.userId);
   res.render("index");
 });
 
