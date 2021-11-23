@@ -11,9 +11,10 @@ datasource db {
 }
 
 model lists {
-  id          Int    @id @default(autoincrement())
-  ownerId     String
-  local_store Int    @default(1)
+  id      Int    @id @default(autoincrement())
+  ownerId String
+  storeId Int    @default(1)
+  // store   stores @relation(fields: [storeId], references: [id])
 }
 
 model items {
@@ -26,16 +27,19 @@ model items {
 }
 
 model categories {
-  id    Int     @id
-  name  String
-  items items[]
+  id             Int               @id
+  name           String
+  items          items[]
+  categoryOrders category_orders[]
 }
 
 model category_orders {
-  categoryId       Int    @id @default(autoincrement())
+  id               Int        @id @default(autoincrement())
+  categoryId       Int
   categoryPosition Int
   storeId          Int
-  store            stores @relation(fields: [storeId], references: [id])
+  store            stores     @relation(fields: [storeId], references: [id])
+  category         categories @relation(fields: [categoryId], references: [id])
 }
 
 model stores {
@@ -45,4 +49,5 @@ model stores {
   latitude      Float
   longitude     Float
   categoryOrder category_orders[]
+  // list          lists[]
 }
