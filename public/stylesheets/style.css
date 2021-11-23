@@ -22,6 +22,14 @@ h1 {
 }
 
 h2 {
+  color: #f4a442 !important;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #265850 !important;
   font-weight: bold;
   font-size: 1.5em;
   margin-bottom: 15px;
@@ -42,8 +50,8 @@ button {
   padding: 10px 30px;
 
   border-style: none;
-  background-color: #3e7c17;
-  color: #e8e1d9;
+  background-color: #265850;
+  color: white;
   font-size: 16px;
 }
 
@@ -62,6 +70,9 @@ button {
 
 hr {
   margin: 20px 0px;
+  width: 90%!important;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .map {
@@ -128,10 +139,23 @@ hr {
 
 /* LIST */
 
+.map-content {
+  padding: 30px;
+}
+
+.list-header {
+  background: #fff;
+  padding: 30px;
+  -moz-box-shadow:    0px 0px 19px 3px #ccc;
+  -webkit-box-shadow: 0px 0px 19px 3px #ccc;
+  box-shadow:         0px 0px 19px 3px #ccc;
+}
+
 .list-content {
   height: 80vh;
   overflow: auto;
   background: #fff;
+  padding: 10px 30px 30px 30px;
 }
 
 .list {
@@ -187,11 +211,10 @@ select {
 
 input[type="submit"] {
   border-radius: 5px;
-  padding: 10px 30px;
-
+  padding: 10px 50px;
   border-style: none;
-  background-color: #3e7c17;
-  color: #e8e1d9;
+  background-color: #265850;
+  color: white;
   font-size: 16px;
   margin: 10px;
 }

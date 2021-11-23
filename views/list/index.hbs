@@ -1,63 +1,72 @@
 <div class="container">
-  <h1 class="header">{{title}}</h1>
-  <form class="add-item-form" action="/list/additem" method="post">
-    <div class='row add-item'>
-      <div class='col-md-7'>
-        <input
-          class="item-input"
-          id="new-item"
-          name="item"
-          type="text"
-          placeholder="apples"
-          required
-        />
-      </div>
-      <div class='col-md-3'>
-        <select class="select-dropdown" id="category" name="category">
-          <option value="0">Fruits &amp; Vegs</option>
-          <option value="1">Bakery</option>
-          <option value="2">Fridge</option>
-          <option value="3">Frozen</option>
-          <option value="4">Food Cupboard</option>
-          <option value="5">Household</option>
-        </select>
-      </div>
-      <div class='col-md-2 d-flex add-btn'>
-        <input class="add-item-btn" type="submit" value="Add Item" />
-      </div>
-    </div>
-  </form>
-  <hr>
+  <h1 class="header">Welcome to SpeedAisle</h1>
+  <p>This is some text</p>
   <section class="row">
-    <div class='list-content col'>
-      {{#if hasItems }}
-        {{#each categorised}}
-          {{#if this.items.length }}
-          <h2>{{this.header}}</h2>
-          <ul class="list">
-            {{#each this.items}}
-              <div class='checkbox {{this.id}}'>
-                <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}} checked='checked'{{/if}}/>
-                <label for={{this.id}} class="strikethrough">{{this.name}}</label>
-                <img class="trash-can" id="remove-{{this.id}}" src="images/trash-can.png" onclick="deleteItem({{this.id}})">
-              </div>
-            {{/each}}
-          </ul>
-          {{/if}}
-        {{/each}}
-        <form class="test-remove-all-form" action="/list/clean" method="get">
-          <input class="test-remove-all-btn" type="submit" value="delete all" />
+    <div class='list-header col-md-8'>
+      <div class='row'>
+        <h2 class="header">{{title}}</h2>
+        <form class="add-item-form" action="/list/additem" method="post">
+          <div class='row add-item'>
+            <div class='col-md-12'>
+              <input
+                class="item-input"
+                id="new-item"
+                name="item"
+                type="text"
+                placeholder="apples"
+                required
+              />
+            </div>
+          </div>
+          <div class='row add-item'>
+            <div class='col-md-7'>
+              <select class="select-dropdown" id="category" name="category">
+                <option value="0">Fruits &amp; Vegs</option>
+                <option value="1">Bakery</option>
+                <option value="2">Fridge</option>
+                <option value="3">Frozen</option>
+                <option value="4">Food Cupboard</option>
+                <option value="5">Household</option>
+              </select>
+            </div>
+            <div class='col-md-5 d-flex add-btn'>
+              <input class="add-item-btn" type="submit" value="Add Item" />
+            </div>
+          </div>
         </form>
-      {{else}}
-        <h3 class='message'>
-          Your list is empty!
-        </h3>
-      {{/if}}
+      </div>
+      <hr>
+      <div class='row list-content'>
+        {{#if hasItems }}
+          {{#each categorised}}
+            {{#if this.items.length }}
+            <h3>{{this.header}}</h3>
+            <ul class="list">
+              {{#each this.items}}
+                <div class='checkbox {{this.id}}'>
+                  <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}} checked='checked'{{/if}}/>
+                  <label for={{this.id}} class="strikethrough">{{this.name}}</label>
+                  <img class="trash-can" id="remove-{{this.id}}" src="images/trash-can.png" onclick="deleteItem({{this.id}})">
+                </div>
+              {{/each}}
+            </ul>
+            {{/if}}
+          {{/each}}
+          <form class="test-remove-all-form" action="/list/clean" method="get">
+            <input class="test-remove-all-btn" type="submit" value="delete all" />
+          </form>
+        {{else}}
+          <h3 class='message'>
+            Your list is empty!
+          </h3>
+        {{/if}}
+      </div>
     </div>
     
-    <div class='col'>
+    <div class='col-md-4 map-content'>
       <h2>Your local store</h2>
-      <p>{{store.name}}: {{store.address}}</p>
+      <p><b>{{store.name}}</b></p>
+      <p><i>{{store.address}}</i></p>
       <div id="map" class="map"></div>
       <script type="text/javascript">
         var map = new ol.Map({
