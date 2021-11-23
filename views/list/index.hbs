@@ -2,7 +2,7 @@
   <h1 class="header">Welcome to SpeedAisle</h1>
   <p>This is some text</p>
   <section class="row">
-    <div class='list-header col-md-8'>
+    <div class='list-header col-md-7'>
       <div class='row'>
         <h2 class="header">{{title}}</h2>
         <form class="add-item-form" action="/list/additem" method="post">
@@ -46,7 +46,9 @@
                 <div class='checkbox {{this.id}}'>
                   <input type="checkbox" id={{this.id}} onclick="addCheck({{this.id}})" {{#if checked}} checked='checked'{{/if}}/>
                   <label for={{this.id}} class="strikethrough">{{this.name}}</label>
-                  <img class="trash-can" id="remove-{{this.id}}" src="images/trash-can.png" onclick="deleteItem({{this.id}})">
+                  <span style='float: right;'>
+                    <img class="trash-can" id="remove-{{this.id}}" src="images/trash-can.png" onclick="deleteItem({{this.id}})">
+                  </span>
                 </div>
               {{/each}}
             </ul>
@@ -63,7 +65,7 @@
       </div>
     </div>
     
-    <div class='col-md-4 map-content'>
+    <div class='col-md-5 map-content'>
       <h2>Your local store</h2>
       <p><b>{{store.name}}</b></p>
       <p><i>{{store.address}}</i></p>

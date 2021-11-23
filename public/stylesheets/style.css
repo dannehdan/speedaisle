@@ -163,7 +163,6 @@ hr {
 }
 
 .list-content {
-  height: 80vh;
   overflow: auto;
   background: #fff;
   padding: 10px 30px 30px 30px;
