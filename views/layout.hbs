@@ -31,7 +31,13 @@
             <a class='nav-link' href='/list'>My List</a>
           </li>
         </ul>
-
+        {{#if document.cookies.userId}}
+        <ul class='navbar-nav navbar-right'>
+          <li class='nav-item'>
+            User exists
+          </li>
+        </ul>
+        {{/if}}
         <ul class='navbar-nav navbar-right'>
           <li class='nav-item'>
             Random Text
