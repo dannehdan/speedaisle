@@ -73,6 +73,7 @@ router.post("/", (req, res, next) => {
 
 router.get("/logout", checkAuthenticated, (req, res) => {
   res.clearCookie("session-token");
+  res.cookie("userId");
   res.redirect("/");
 });
 
