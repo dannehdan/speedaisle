@@ -11,9 +11,9 @@
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
-    {{!-- <script>Icons made by <a href="https://www.flaticon.com/authors/muhajir" title="Muhajir">Muhajir</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></script> --}}
   </head>
   <body>
+
     <nav class='navbar navbar-expand-md sticky-top'>
       <a class='navbar-brand' href="/list">
         <img src='images/cart.png' width='30' style='margin: 3px;'> SpeedAisle
@@ -26,77 +26,25 @@
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         {{!-- navbar left items --}}
         {{!-- when sessions are active remove this comment {{#if userExists}} --}}
-        <ul class='navbar-nav mr-auto'>
+        <ul class='navbar-nav me-auto mb-lg-0'>
+        {{!-- <ul class='navbar-nav mr-auto'> --}}
           <li class='nav-item'>
             <a class='nav-link' href='/list'>My List</a>
           </li>
-        </ul>
-        {{#if document.cookies.userId}}
-        <ul class='navbar-nav navbar-right'>
           <li class='nav-item'>
-            User exists
-          </li>
-        </ul>
-        {{/if}}
-        <ul class='navbar-nav navbar-right'>
-          <li class='nav-item'>
-            Random Text
+            <a class='nav-link' href='/location'>My Local Store</a>
           </li>
         </ul>
 
-        <span class='nav navbar-right navbar-text'>
-          Log out
-        </span>
+        {{!-- navbar right items --}}
+        <ul class='navbar-nav navbar-right'>
+          <li class='nav-item'>
+            <a class='nav-link' href='/logout'>Logout</a>
+          </li>
+        </ul>
       </div>
-
-      {{!-- {{else}} --}}
-      {{!-- {{/if} --}}
-
-      {{!-- navbar right items --}}
-      {{!-- {{#if userExists}}
-        <ul class='nav navbar-nav navbar-right mb-lg-0'>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class='nav-profile-photo' height="30" src='https://png.pngitem.com/pimgs/s/111-1114718_transparent-sleep-icon-png-person-icon-circle-png.png' /> 
-              {{user.name}}
-            </a>
-            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark profile-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="/users/{{user._id}}">
-                My Profile
-              </a>
-              <div class="dropdown-divider"></div>
-                <form id='logout-form' action='/sessions?_method=DELETE' method='POST' style='margin:0px; padding:0px'>
-                  <a class='dropdown-item' id='logout-button' href='#' onclick="document.getElementById('logout-form').submit(); return false;">
-                    Log Out
-                  </a>
-                </form>
-              </div>
-          </li> --}}
-
-                    {{!-- <li class='nav-item'>
-                        <form id='logout-form' action='/sessions?_method=DELETE' method='POST' style='margin:0px; padding:0px'>
-                            <a class='nav-link' id='logout-button' href='#' onclick="document.getElementById('logout-form').submit(); return false;">
-                    Log Out
-                  </a>
-                        </form>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='/users/{{user._id}}'>Profile</a>
-                    </li> --}}
-                {{!-- </ul>
-                {{else}}
-                <ul id='no-session-state' class='nav navbar-nav navbar-right mb-2 mb-lg-0'>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='/users/new'>Sign Up</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='/sessions/new'>Log in</a>
-                    </li>
-                </ul>
-                {{/if}}
-            </div>
-        </div> --}}
-
     </nav>
+
     {{{body}}}
   </body>
 </html>
