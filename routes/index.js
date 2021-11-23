@@ -40,6 +40,10 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 
+router.get("/about", function (req, res, next) {
+  res.render("about");
+});
+
 router.post("/", (req, res, next) => {
   let token = req.body.token;
 
@@ -76,5 +80,6 @@ router.get("/logout", checkAuthenticated, (req, res) => {
   res.cookie("userId");
   res.redirect("/");
 });
+
 
 module.exports = router;
