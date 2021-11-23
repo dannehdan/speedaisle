@@ -1,10 +1,10 @@
-<div class='container-fluid homepage-container'>
-  <div class='row'>
+<div class='container-fluid'>
+  <div class='row location-home'>
     <div class='col-sm-6 location-content'>
       <div class='row'>
-        <h2>Search for your local store</h2>
+        <h2 style='text-align:center;'>Search for your local store</h2>
       </div>
-      <h3>Current store:</h3>
+      <h4>Current store:</h4>
       <p><b>{{currentStore.name}}</b>
       <br>
       <i>{{currentStore.address}}</i>
@@ -32,8 +32,7 @@
         </div>
       </form>
     </div>
-    <div class='col-sm-6 hero-image'>
-      <p>{{currentStore.name}}: {{currentStore.address}}</p>
+    <div class='col-sm-6 map-image'>
       <div id="map" class="map"></div>
         <script type="text/javascript">
           var map = new ol.Map({
