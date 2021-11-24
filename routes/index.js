@@ -8,8 +8,7 @@ const prisma = new PrismaClient();
 
 const cookieParser = require("cookie-parser");
 const { OAuth2Client } = require("google-auth-library");
-const CLIENT_ID =
-  "588116689693-af8duu5dpqicmdai7ovfrcr5ii9bl4qb.apps.googleusercontent.com";
+const CLIENT_ID ="588116689693-af8duu5dpqicmdai7ovfrcr5ii9bl4qb.apps.googleusercontent.com";
 const client = new OAuth2Client(CLIENT_ID);
 
 function checkAuthenticated(req, res, next) {
