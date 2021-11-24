@@ -38,6 +38,7 @@ const ListsController = {
       categorised: categorised,
       hasItems: items.length > 0,
       store: currentStore,
+      loggedIn: true,
     });
   },
 
@@ -65,7 +66,7 @@ const ListsController = {
     const userId = req.cookies.userId;
     const userList = await list.findListByUser(userId);
     const orderedCategories = await store.getStoreCategoriesOrdered(userList.storeId)
-    res.render('list/categoriesorder', { title: 'Reorder categories', categories: orderedCategories });
+    res.render('list/categoriesorder', { title: 'Reorder categories', categories: orderedCategories, loggedIn: true });
   },
 
   ChangeOrder: async (req, res) => {
