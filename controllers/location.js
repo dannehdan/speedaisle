@@ -15,6 +15,7 @@ const LocationController = {
     res.render("location/index", {
       stores: stores,
       currentStore: currentStore,
+      loggedIn: true,
     });
   },
 
@@ -31,7 +32,8 @@ const LocationController = {
 
     res.render("location/index", {
       stores: stores,
-      currentStore: currentStore
+      currentStore: currentStore,
+      loggedIn: true,
     });
   },
 };
