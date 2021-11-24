@@ -65,8 +65,9 @@ button {
   border-radius: 5px;
 }
 .abcRioButton.abcRioButtonLightBlue {
-  background-color: #3e7c17;
+  background-color: #265850;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .abcRioButtonContents {
