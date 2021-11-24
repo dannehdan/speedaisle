@@ -1,57 +1,22 @@
-const { response } = require("express");
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const checkAuthenticated = require('../models/checkauth');
 
 const { PrismaClient } = require("@prisma/client");
+const {OAuth2Client} = require('google-auth-library');
 
 const prisma = new PrismaClient();
-
-const cookieParser = require("cookie-parser");
-const { OAuth2Client } = require("google-auth-library");
-const CLIENT_ID =
-  "588116689693-af8duu5dpqicmdai7ovfrcr5ii9bl4qb.apps.googleusercontent.com";
+const CLIENT_ID = '588116689693-af8duu5dpqicmdai7ovfrcr5ii9bl4qb.apps.googleusercontent.com'
 const client = new OAuth2Client(CLIENT_ID);
 
-function checkAuthenticated(req, res, next) {
-  let token = req.cookies["session-token"];
-
-  let user = {};
-  async function verify() {
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
-    });
-    const payload = ticket.getPayload();
-    user.name = payload.name;
-    user.email = payload.email;
-    user.picture = payload.picture;
-  }
-  verify()
-    .then(() => {
-      req.user = user;
-      next();
-    })
-    .catch((err) => {
-      res.redirect("/");
-    });
-}
-
-router.get("/", function (req, res, next) {
-  res.render("index");
-});
-
-router.get("/about", function (req, res, next) {
-  res.render("about");
-});
-
-router.post("/", (req, res, next) => {
+function googleAuth(req, res) {
   let token = req.body.token;
 
   let userId;
   async function verify() {
     const ticket = await client.verifyIdToken({
       idToken: token,
-      audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
+      audience: CLIENT_ID // Specify the CLIENT_ID of the app that accesses the backend
     });
     const payload = ticket.getPayload();
     userId = payload["sub"];
@@ -73,7 +38,18 @@ router.post("/", (req, res, next) => {
       res.send("success");
     })
     .catch(console.error);
+}
+
+
+router.get("/", function (req, res) {
+  res.render("index");
 });
+
+router.get("/about", function (req, res) {
+  res.render("about");
+});
+
+router.post("/", googleAuth);
 
 router.get("/logout", checkAuthenticated, (req, res) => {
   res.clearCookie("session-token");
