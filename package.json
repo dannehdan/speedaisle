@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "start:test": "PORT=3030 NODE_ENV=test npm start",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "jest",
