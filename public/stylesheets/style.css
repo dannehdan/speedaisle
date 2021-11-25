@@ -82,7 +82,7 @@ hr {
 }
 
 .map {
-  height: 400px;
+  height: 60vh;
   width: 100%;
 }
 
@@ -258,8 +258,7 @@ input[type="submit"] {
 
 .location-home {
   display: flex;
-  align-items: center;
-  height: 70vh
+  height: 80vh
 }
 
 .location-content {
