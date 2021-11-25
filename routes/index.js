@@ -42,18 +42,20 @@ function googleAuth(req, res) {
 
 
 router.get("/", function (req, res) {
-  res.render("index");
+  let loggedIn = req.cookies.userId != undefined;
+  res.render("index", { title: "SpeedAisle", loggedIn: loggedIn });
 });
 
 router.get("/about", function (req, res) {
-  res.render("about");
+  let loggedIn = req.cookies.userId != undefined;
+  res.render("about", { title: "About", loggedIn: loggedIn });
 });
 
 router.post("/", googleAuth);
 
 router.get("/logout", checkAuthenticated, (req, res) => {
   res.clearCookie("session-token");
-  res.cookie("userId");
+  res.clearCookie("userId");
   res.redirect("/");
 });
 
