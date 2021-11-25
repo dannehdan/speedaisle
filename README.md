@@ -4,6 +4,8 @@ SpeedAisle is an application that allows you to create a shopping list, which Sp
 
 _Stretch goal is to have automatic pathfinding to map out the most efficient route around your store_
 
+![SpeedAisle](https://drive.google.com/uc?export=view&id=16n89fINCrgjmE8QdS9OR7Hd6YZjBdh2g)
+
 ## Tech Stack
 
 - Node.js
