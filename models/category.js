@@ -14,7 +14,7 @@ const categories = [
 class Category {
   async populateTable() {
     const valid = await prisma.categories.findFirst({
-      where: { name: "Fruits & Vegs" },
+      where: { name: "Fruit & Veg" },
     });
 
     if (valid) {
