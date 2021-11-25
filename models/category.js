@@ -3,7 +3,7 @@ const getDBType = require("../utils/getDBType");
 const prisma = getDBType();
 
 const categories = [
-  "Fruits & Vegs",
+  "Fruit & Veg",
   "Bakery",
   "Fridge",
   "Frozen",
