@@ -8,7 +8,7 @@ const categories = [
   "Fridge",
   "Frozen",
   "Food Cupboard",
-  "Household",
+  "Household"
 ];
 
 class Category {
